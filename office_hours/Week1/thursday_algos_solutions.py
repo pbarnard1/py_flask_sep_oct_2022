@@ -58,6 +58,24 @@ def count_vowels_2(my_string):
 print('--------------------')
 print(count_vowels_2("money"))
 print(count_vowels_2("adrian"))
+
+# Case-insensitive version (added after office hour and lecture)
+
+def count_vowels_3(my_string):
+    my_string = my_string.lower() # Convert to lower case
+    # The rest of the code is pretty much the same as the 1st version
+    vowel_count = 0
+    vowels = ('a','e','i','o','u')
+    for letter in my_string:
+        if letter in vowels: # Check to see if the current letter can be found in the tuple
+            vowel_count += 1
+    return vowel_count
+
+test_str_1 = "hellO woRLd"
+print(count_vowels_3(test_str_1))
+print(count_vowels_3("BlUE BayoU"))
+
+
 """
 Factorial:
 In mathematics, n! (read "n factorial") is equal to 1 * 2 * 3 * ... * n.
