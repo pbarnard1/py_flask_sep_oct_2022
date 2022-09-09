@@ -21,7 +21,7 @@ PHANTOM will return 14 (3 + 4 + 1 + 1 + 1 + 1 + 3).
 
 
 """
-Filter Strings from Array
+Filter Strings from List
 (Modified from this version from Edabit: https://edabit.com/challenge/nunJurLEibCyn8fzn)
 Given a list containing strings and numbers, return a new list with all string values removed.
 Keep the original order of the values the same.
