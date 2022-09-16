@@ -1,4 +1,3 @@
-# Week 3: Frequency Distribution (https://edabit.com/challenge/KKmM4ob5wwPwf8kgS)
 """
 Frequency distribution (from https://edabit.com/challenge/KKmM4ob5wwPwf8kgS):
 
@@ -13,8 +12,10 @@ Examples:
 [] returns {}
 """
 
-# Number of digits in a number (https://edabit.com/challenge/yFJzLfYghz7ZtsyAN)
+
 """
+# Number of digits in a number (https://edabit.com/challenge/yFJzLfYghz7ZtsyAN)
+
 Given an integer as input, return the number of digits in the integer.
 You may assume the number is an integer (whole number) only.
 
