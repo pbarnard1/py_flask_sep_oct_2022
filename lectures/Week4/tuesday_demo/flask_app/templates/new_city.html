@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lively Cities and Landmarks</p>
+    <h1>Let's add a city!</h1>
+    <form action="/cities/add_to_db" method="POST"> <!-- Don't forget action and method="POST"!-->
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name"> <!-- Don't forget name="key_value" in forms!-->
+        </div>
+        <div>
+            <label for="mayor">Mayor:</label>
+            <input type="text" name="mayor" id="mayor">
+        </div>
+        <div>
+            <label for="population">Population:</label>
+            <input type="number" name="population" id="population">
+        </div>
+        <!-- Remember to have a button or input type="submit"!-->
+        <input type="submit" value="Add city">
+    </form>
+</body>
+</html>
