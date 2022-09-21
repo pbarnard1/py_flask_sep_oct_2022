@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+}
+
+.top-nav {
+    display: flex;
+    width: 100vw;
+    padding: 1vw;
+}
+
+.nav-links {
+    display: flex;
+    flex: 2;
+    align-items: center;
+}
+
+.col-wide {
+    flex: 8;
+    font-size: 36px;
+}
+
+.col {
+    flex: 1;
+    text-align: right;
+}
+
+.form-input {
+    margin: 0.5vw;
+}
+
+.my_button {
+    margin: 0.5vw;
+    background-color: lightblue;
+    border-radius: 5px;
+    border: 2px solid;
+    height: 30px;
+    width: 200px;
+}

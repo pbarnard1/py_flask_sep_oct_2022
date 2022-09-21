@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Add game</title>
+</head>
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <p class="col-wide">Add a game</p>
+            <div class="nav-links">
+                <p class="col"><a href="/">Hello</a></p>
+                <p class="col"><a href="/">Hello</a></p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form action="/games/add_to_db" method="POST">
+            <div class="form-input">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div class="form-input">
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" step="0.1">
+            </div>
+            <div class="form-input">
+                <label for="first_name">First name:</label>
+                <input type="text" id="first_name">
+            </div>
+            <div class="form-input">
+                <label for="last_name">Last name:</label>
+                <input type="text" id="last_name">
+            </div>
+            <input type="submit" class="my_button" value="Add game">
+        </form>
+    </div>
+</body>
+</html>

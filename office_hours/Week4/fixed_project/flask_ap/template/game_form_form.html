@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New game</title>
+</head>
+<body>
+    <h1>New game:</h1>
+    <p>Game: {{ session["name"] }}</p>
+    <p>Rating: {{ session['rating'] }}</p>
+    <p>Added by: {{ session['first_name'] session['last_name'] }}</p>
+</body>
+</html>
