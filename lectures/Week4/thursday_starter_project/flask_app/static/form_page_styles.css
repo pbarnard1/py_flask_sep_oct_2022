@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.large {
+    font-size: 24px;
+}
+.big-col {
+    flex: 8;
+}
+.col {
+    flex: 2;
+    text-align: right;
+}
+
+.label-col {
+    width: 150px;
+    margin: 10px 0px;
+}
+
+.offset-btn {
+    margin-left: 160px;
+    width: 100px;
+    background-color: lightsalmon;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 30px;
+}
+
+h1 {
+    margin: 10px;
+}
