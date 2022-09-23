@@ -1,5 +1,5 @@
-from flask_ap import app
-from flask import render_template
+from flask_app import app # Bug fix: flask_app, NOT flask_ap
+from flask import render_template, request, session, redirect
 @app.route("/")
 def all_games_page():
     my_games = [
@@ -32,18 +32,27 @@ def all_games_page():
             "last_name": "Barnard"
         },
     ]
-    return render_template("all_game.html", my_games = my_games)
+    # Bug fix: all_games.html - must match file names exactly, otherwise you get a TemplateNotFound error
+    # Bug fix: folder name must be "templates" - NOT "template"
+    # Bug fix: need {% endfor %} in HTML
+    # Bug fix: {{ }} {{ }} for displaying the name
+    # Bug fix: all_games = ..., NOT my_games = ..., so we match the HTML variable name
+    # Bug fix: game["name"], NOT game["game"]
+    return render_template("all_games.html", all_games = my_games)
 
 @app.route("/games/new")
 def add_game_page():
     return render_template("new_game.html")
 
-@app.route("/games/add_to_db")
+# Bug fix: needed to import request, session and redirect
+# Bug fix: need methods=["POST"] for POST requests
+# Bug fix: Need name='' for any fields where you are entering value
+@app.route("/games/add_to_db", methods=["POST"])
 def add_game_to_db():
-    # Placeholder for adding to db goes here
+    # Placeholder for adding to db goes here (future)
     
     # Interim fix: put form data in session
-    session["game"] = request.form["game"]
+    session["name"] = request.form["name"] # Bug fix: "name", not "game"
     session["rating"] = request.form["rating"]
     session["first_name"] = request.form["first_name"]
     session["last_name"] = request.form["last_name"]
@@ -51,4 +60,6 @@ def add_game_to_db():
 
 @app.route("/game_added")
 def show_game_from_form():
+    # Bug fixes: file name must match;
+    # Also need to use {{ }} {{ }} for displaying the name
     return render_template("game_from_form.html")

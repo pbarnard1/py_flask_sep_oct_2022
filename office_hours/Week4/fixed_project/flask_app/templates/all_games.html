@@ -21,10 +21,11 @@
             {% for game in all_games %}
             <tr>
                 <td>{{ game["id"] }}</td>
-                <td>{{ game["game"] }}</td>
+                <td>{{ game["name"] }}</td>
                 <td>{{ game["rating"] }}</td>
-                <td>{{ game["first_name"] game["last_name"] }}</td>
+                <td>{{ game["first_name"] }} {{ game["last_name"] }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </body>
