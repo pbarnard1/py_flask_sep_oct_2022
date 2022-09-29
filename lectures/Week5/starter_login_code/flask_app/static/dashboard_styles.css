@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.large {
+    font-size: 24px;
+}
+.big-col {
+    flex: 8;
+}
+.col {
+    flex: 2;
+    text-align: right;
+}

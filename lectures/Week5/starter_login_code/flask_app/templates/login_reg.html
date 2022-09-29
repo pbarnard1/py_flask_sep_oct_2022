@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form_styles.css') }}">
+    <title>My amazing site</title>
+</head>
+<body>
+    <h1>Welcome to my amazing site!</h1>
+    <div class="container">
+        <div class="col">
+            <form action="/???" method="POST"> <!-- Don't forget action and method="POST"!-->
+                <h3>Register</h3>
+                <!-- DISPLAY VALIDATION MESSAGES HERE!! -->
+                <div class="container">
+                    <label for="first_name" class="label-col">First name:</label>
+                    <input type="text" name="first_name" id="first_name">
+                </div>
+                <div class="container">
+                    <label for="last_name" class="label-col">Last name:</label>
+                    <input type="text" name="last_name" id="last_name">
+                </div>
+                <div class="container">
+                    <label for="email" class="label-col">Email:</label>
+                    <input type="???" name="email" id="email"> <!-- Notice the input type! -->
+                </div>
+                <div class="container">
+                    <label for="password" class="label-col">Password:</label>
+                    <input type="???" name="password" id="password"> <!-- Notice the input type! -->
+                </div>
+                <div class="container">
+                    <label for="confirm_password" class="label-col">Confirm password:</label>
+                    <input type="???" name="confirm_password" id="confirm_password"> <!-- Notice the input type! -->
+                </div>
+                <!-- Remember to have a button or input type="submit"!-->
+                <input type="submit" value="Register" class="offset-btn">
+            </form>
+        </div>
+        <div class="col">
+            <form action="/???" method="POST"> <!-- Don't forget action and method="POST"!-->
+                <h3>Log in</h3>
+                <!-- DISPLAY VALIDATION MESSAGES HERE!! -->
+                <div class="container">
+                    <label for="email" class="label-col">Email:</label>
+                    <input type="???" name="email" id="email"> <!-- Notice the input type! -->
+                </div>
+                <div class="container">
+                    <label for="password" class="label-col">Password:</label>
+                    <input type="???" name="password" id="password"> <!-- Notice the input type! -->
+                </div>
+                <!-- Remember to have a button or input type="submit"!-->
+                <input type="submit" value="Log in" class="offset-btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
