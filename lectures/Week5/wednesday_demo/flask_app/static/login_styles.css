@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    
+}
+.container p {
+    text-align: center;
+    margin: 5px 0px;
+}
+
+input[type="submit"] {
+    width: 100px;
+    background-color: lightsalmon;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 30px;
+}

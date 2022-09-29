@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form_page_styles.css') }}">
+    <title>Edit a City</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">Edit city #{{ this_city.id }}, {{ this_city.name }}</p>
+        <p class="col"><a href="/cities">All cities</a> <a href="/logout">Exit</a></p> <!-- Added links! -->
+    </div>
+    <form action="/cities/{{ this_city.id }}/edit_in_db" method="POST"> <!-- Changed the action! -->
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <div class="container">
+            <label for="name" class="label-col">Name:</label>
+            <input type="text" name="name" id="name" value="{{ this_city.name }}"> <!-- Prepopulate input with value -->
+        </div>
+        <div class="container">
+            <label for="mayor" class="label-col">Mayor:</label>
+            <input type="text" name="mayor" id="mayor" value="{{ this_city.mayor }}">
+        </div>
+        <div class="container">
+            <label for="population" class="label-col">Population:</label>
+            <input type="number" name="population" id="population" value="{{ this_city.population }}">
+        </div>
+        <!-- Remember to have a button or input type="submit"!-->
+        <input type="submit" value="Edit city" class="offset-btn">
+    </form>
+</body>
+</html>

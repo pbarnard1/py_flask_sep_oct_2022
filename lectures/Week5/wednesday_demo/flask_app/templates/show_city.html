@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cities_styles.css') }}">
+    <title>View a City</title>
+</head>
+<body>
+    <!-- Now we can show one city from the database -->
+    <div class="container">
+        <p class="large big-col">Thank you for looking at {{ this_city.name }}, {{ session["user_name"] }}!</p>
+        <p class="col"><a href="/cities">All cities</a> <a href="/logout">Exit</a></p>
+    </div>
+    <p>Mayor: {{ this_city.mayor }} </p>
+    <p>Population: {{ this_city.population }}</p>
+    <p>Landmarks:</p>
+    <ul>
+        {% for this_landmark in this_city.landmarks %}
+        <li>{{ this_landmark.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cities_styles.css') }}">
+    <title>Lively Landmarks</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">Welcome, {{ session["user_name"] }}!</p> <!-- Display name of user from session here! -->
+        <p class="col"><a href="/cities">All cities</a> <a href="/logout">Exit</a></p>
+    </div>
+    <h1>List of Landmarks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Show each landmark -->
+            {% for this_landmark in all_landmarks %}
+            <tr>
+                <td>{{ this_landmark.id }}</td>
+                <td>{{ this_landmark.name }}</td>
+                <td>{{ this_landmark.city.name }}</td> <!-- Notice how we're linking cities and landmarks!! -->
+                <td><a href="/landmarks/{{ this_landmark.id }}/view">View</a> <a href="/landmarks/{{ this_landmark.id }}/edit">Edit</a> <a href="/landmarks/{{ this_landmark.id }}/delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="link-btn" href="/landmarks/new">Add landmark</a>
+</body>
+</html>

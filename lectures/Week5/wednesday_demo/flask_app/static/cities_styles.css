@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+.container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.large {
+    font-size: 24px;
+}
+.big-col {
+    flex: 8;
+}
+.col {
+    flex: 2;
+    text-align: right;
+}
+
+h1 {
+    margin: 10px;
+    text-align: center;
+}
+.link-btn {
+    display: flex;
+    width: 100px;
+    background-color: lightsalmon;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+
+table {
+    margin: 10px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px 0px;
+}

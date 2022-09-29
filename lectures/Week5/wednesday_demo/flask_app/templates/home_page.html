@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link CSS here-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login_styles.css') }}">
+    <title>Lively Cities and Landmarks</title>
+</head>
+<body>
+    <h1>Lively Cities and Landmarks!</h1>
+    <div class="container">
+        <form action="/login" method="POST">
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <p><label>Enter your name:</label></p>
+            <p><input type="text" name="user_name"></p>
+            <p><input type="submit" value="Enter"></p>
+        </form>
+    </div>
+</body>
+</html>

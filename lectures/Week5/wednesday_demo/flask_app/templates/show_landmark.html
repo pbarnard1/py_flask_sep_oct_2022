@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cities_styles.css') }}">
+    <title>View {{ this_landmark.name }}</title>
+</head>
+<body>
+    <!-- Now we can show one city from the database -->
+    <div class="container">
+        <p class="large big-col">About {{ this_landmark.name }}</p>
+        <p class="col"><a href="/landmarks">All landmarks</a> <a href="/logout">Exit</a></p>
+    </div>
+    <p>Year created: {{ this_landmark.year_created }} </p>
+    <p>Address: {{ this_landmark.address }}</p>
+    <p>City: {{ this_landmark.city.name }}</p>
+</body>
+</html>

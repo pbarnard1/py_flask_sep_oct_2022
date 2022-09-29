@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form_page_styles.css') }}">
+    <title>Edit {{ this_landmark.name }}</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">Edit {{ this_landmark.name }}</p>
+        <p class="col"><a href="/landmarks">All landmarks</a> <a href="/logout">Exit</a></p> <!-- Corrected links! -->
+    </div>
+    <form action="/landmarks/{{ this_landmark.id}}/edit_in_db" method="POST"> <!-- Don't forget action and method="POST"!-->
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                {% if messages %}                            <!-- check if there are any messages -->
+                    {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <div class="container">
+            <label for="name" class="label-col">Name:</label>
+            <input type="text" name="name" id="name" value="{{ this_landmark.name }}"> <!-- Don't forget name="key_value" in forms!-->
+        </div>
+        <div class="container">
+            <label for="year_created" class="label-col">Year created:</label>
+            <input type="number" name="year_created" id="year_created" value="{{ this_landmark.year_created }}">
+        </div>
+        <div class="container">
+            <label for="address" class="label-col">Address:</label>
+            <input type="text" name="address" id="address" value="{{ this_landmark.address }}">
+        </div>
+        <div class="container">
+            <label for="city" class="label-col">City:</label>
+            <select name="city_id">
+                {% for current_city in all_cities %}
+                <!-- Grab the cities and display them one at a time-->
+                    {% if current_city.id == this_landmark.city.id %}
+                    <option value="{{ current_city.id }}" selected>{{ current_city.name }}</option>
+                    {% else %} <!-- Not the selected city-->
+                    <option value="{{ current_city.id }}">{{ current_city.name }}</option>
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+        </div>
+        <!-- Remember to have a button or input type="submit"!-->
+        <input type="submit" value="Edit landmark" class="offset-btn">
+</body>
+</html>
