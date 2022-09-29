@@ -125,6 +125,6 @@ class Landmark:
             flash("Year must be this year or earlier")
             is_valid = False
         if len(form_data["address"]) < 6:
-            flash("Address must be 2 or more characters")
+            flash("Address must be 6 or more characters")
             is_valid = False
         return is_valid

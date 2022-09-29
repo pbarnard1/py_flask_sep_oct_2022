@@ -121,4 +121,3 @@ class City:
             flash("Mayor must be 4 or more characters")
             is_valid = False
         return is_valid
-
