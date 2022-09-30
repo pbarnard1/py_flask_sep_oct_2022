@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form_styles.css') }}">
+    <title>My amazing site</title>
+</head>
+<body>
+    <h1>Welcome to my amazing site!</h1>
+    <div class="container">
+        <div class="col">
+            <form action="/register" method="POST"> <!-- Don't forget action and method="POST"!-->
+                <h3>Register</h3>
+                {% with messages = get_flashed_messages(category_filter=["register"]) %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="container">
+                    <label for="first_name" class="label-col">First name:</label>
+                    <input type="text" name="first_name" id="first_name">
+                </div>
+                <div class="container">
+                    <label for="last_name" class="label-col">Last name:</label>
+                    <input type="text" name="last_name" id="last_name">
+                </div>
+                <div class="container">
+                    <label for="email" class="label-col">Email:</label>
+                    <input type="email" name="email" id="email"> <!-- Notice the input type! -->
+                </div>
+                <div class="container">
+                    <label for="password" class="label-col">Password:</label>
+                    <input type="password" name="password" id="password"> <!-- Notice the input type! -->
+                </div>
+                <div class="container">
+                    <label for="confirm_password" class="label-col">Confirm password:</label>
+                    <input type="password" name="confirm_password" id="confirm_password"> <!-- Notice the input type! -->
+                </div>
+                <!-- Remember to have a button or input type="submit"!-->
+                <input type="submit" value="Register" class="offset-btn">
+            </form>
+        </div>
+        <div class="col">
+            <form action="/login" method="POST"> <!-- Don't forget action and method="POST"!-->
+                <h3>Log in</h3>
+                {% with messages = get_flashed_messages(category_filter=["login"]) %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="container">
+                    <label for="email" class="label-col">Email:</label>
+                    <input type="email" name="email" id="email"> <!-- Notice the input type! -->
+                </div>
+                <div class="container">
+                    <label for="password" class="label-col">Password:</label>
+                    <input type="password" name="password" id="password"> <!-- Notice the input type! -->
+                </div>
+                <!-- Remember to have a button or input type="submit"!-->
+                <input type="submit" value="Log in" class="offset-btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
