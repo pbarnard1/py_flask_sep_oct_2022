@@ -1,6 +1,7 @@
 Tie in log-in and registration from Thursday to our Cities/Landmarks project
     - Add users table
     - Add user model and add to the users.py controller
+    - Checking to make sure someone is logged in for most routes
     - Tie in user to cities - add CRUD functionality
     - Tie in user to landmarks - add CRUD functionality
 
