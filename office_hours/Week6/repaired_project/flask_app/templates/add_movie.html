@@ -20,18 +20,20 @@
             </div>
         </div>
         <h1 class="text-center">Create a Movie</h1>
-        <form action="/movies/add" method="POST">
+        <!-- Bug fix: corrected route name in action attribute -->
+        <form action="/movies/add_to_db" method="POST">
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Title:</label>
                 <input type="text" class="col-sm-3 col-form-control" name="title">
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Genre:</label>
-                <input type="text" class="col-sm-3 col-form-control" name="gener">
+                <!-- Bug fix: corrected name-->
+                <input type="text" class="col-sm-3 col-form-control" name="genre">
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Box office:</label>
-                <input type="number" class="col-sm-3 col-form-control" name="boxoffice">
+                <input type="number" class="col-sm-3 col-form-control" name="box_office">
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Release date:</label>
@@ -41,7 +43,8 @@
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Director:</label>
                 <select name="director_id" class="col-sm-3 col-form-control">
-                    {% for director in directors %}
+                    <!-- Bug fix: changed directors to all_directors -->
+                    {% for director in all_directors %}
                     <option value="{{ director.id }}">{{ director.first_name }} {{ director.last_name }}</option>
                     {% endfor %}
                 </select>

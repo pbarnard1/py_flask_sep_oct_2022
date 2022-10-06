@@ -1,7 +1,9 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 
 class Movie:
-    db_name = "directors_movies_schema"
+    # Bug fix: corrected schema name
+    # TIP: Change your schema names at the beginning!!
+    db_name = "directors_movies_schema_sep_2022"
 
     def __init__(self, data):
         self.id = data["id"]
@@ -18,9 +20,9 @@ class Movie:
     def add_movie(cls, data):
         query = """
         INSERT INTO movies 
-        (genre, title, box_office, release_date, directors_id) 
+        (genre, title, box_office, release_date, director_id) 
         VALUES 
-        (%(genre)s, %(title)s, %(box_office)s, %(release_date)s, %(directors_id)s);
+        (%(genre)s, %(title)s, %(box_office)s, %(release_date)s, %(director_id)s);
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
 

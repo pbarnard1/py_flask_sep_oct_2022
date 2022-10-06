@@ -10,6 +10,7 @@ def all_movies_page():
 # This route will display the NEW movie FORM (this is NOT the same as adding a movie to the database)
 @app.route("/movies/new")
 def new_movie_page():
+    print("Checking this new page")
     # Need to grab the directors for the dropdown in the HTML
     return render_template("add_movie.html", all_directors = director.Director.get_all_directors())
 

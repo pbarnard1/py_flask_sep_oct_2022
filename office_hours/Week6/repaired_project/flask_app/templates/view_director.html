@@ -21,7 +21,7 @@
         </div>
     </div>
     <p>About director #{{ this_director.id }}: {{ this_director.first_name }} {{ this_director.last_name }}</p>
-    <p>Date of birth: {{ this_director.birthdate.strftime("%B %d, %Y") }}</p>
+    <p>Date of birth: {{ this_director.birth_date.strftime("%B %d, %Y") }}</p>
     <p>Movies directed:</p>
     <ul>
         {% for this_movie in movies %}

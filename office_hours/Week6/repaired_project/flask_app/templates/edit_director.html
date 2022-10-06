@@ -19,18 +19,20 @@
                 <p class="text-end"><a href="/directors">All directors</a></p>
             </div>
         </div>
-        <form action="/directors/<int:id>/edit_in_db" method="POST">
+        {# Need {{ }} and NOT <int:id> #}
+        <form action="/directors/{{ this_director.id }}/edit_in_db" method="POST">
             <div class="my-3 row">
+                <!-- Bug fixes: fixed the names -->
                 <label class="col-sm-2 col-form-label">First name:</label>
-                <input type="text" class="col-sm-3 col-form-control" name="firstname" value="{{ this_director.first_name }}">
+                <input type="text" class="col-sm-3 col-form-control" name="first_name" value="{{ this_director.first_name }}">
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Last name:</label>
-                <input type="text" class="col-sm-3 col-form-control" name="lastname" value="{{ this_director.last_name }}"> 
+                <input type="text" class="col-sm-3 col-form-control" name="last_name" value="{{ this_director.last_name }}"> 
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Birth date:</label>
-                <input type="date" class="col-sm-3 col-form-control" name="birthdate" value="{{ this_director.birthdate.strftime('%Y-%m-%d') }}">
+                <input type="date" class="col-sm-3 col-form-control" name="birth_date" value="{{ this_director.birth_date.strftime('%Y-%m-%d') }}">
             </div>
             <div class="row">
                 <div class="col offset-sm-2">

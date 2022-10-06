@@ -32,14 +32,18 @@ def edit_director_page(id):
     data = {
         "id": id,
     }
+    # Bug fix: changed name of HTML file to match
     return render_template("edit_director.html", this_director = director.Director.grab_one_director(data))
 
 
 ## INVISIBLE ROUTES
 # Delete a director from our database
 @app.route("/directors/<int:id>/delete")
-def delete_director():
-    director.Director.delete_director()
+def delete_director(id): # Bug fix: need id since we're passing in a path variable
+    data = {
+        "id": id
+    }
+    director.Director.delete_director(data)
     return redirect("/directors")
 
 # Route to add a director to the database (POST)
@@ -55,12 +59,15 @@ def add_director_to_db():
     return redirect("/directors")
 
 # Route to edit a specific director in the database (POST)
+# Bug fix: need path variable passed in as a parameter
 @app.route("/directors/<int:id>/edit_in_db", methods=["POST"])
-def edit_director_in_db():
+def edit_director_in_db(id):
+    # Bug fix: fixed the names to match
     data = {
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
-        "birthdate": request.form["birthdate"],
+        "birth_date": request.form["birth_date"],
+        "id": id,
     }
     director.Director.edit_director(data)
-    return redirect("/directors/<int:id>/view")
+    return redirect(f"/directors/{id}/view")

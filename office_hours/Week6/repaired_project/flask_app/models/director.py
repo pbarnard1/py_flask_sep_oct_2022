@@ -1,4 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_app.models import movie # Bug fix: need to import this to create Movies
 
 class Director:
     db_name = "directors_movies_schema_sep_2022" # Bug fix: need schema name to match
@@ -46,17 +47,19 @@ class Director:
     def grab_one_director(cls, data):
         query = "SELECT * FROM directors WHERE id = %(id)s;"
         results = connectToMySQL(cls.db_name).query_db(query, data)
+        print(results)
+        print("Made it here")
         if len(results) == 0: # If we get nobody back
             return None
         else:
-            return cls(results)
+            return cls(results[0]) # Bug fix: need index as we need a dictionary, not a list
     
     @classmethod
     def edit_director(cls, data):
         query = """
         UPDATE directors SET 
         first_name = %(first_name)s, last_name = %(last_name)s, 
-        birthdate = %(birthdate)s WHERE id = %(id)s;
+        birth_date = %(birth_date)s WHERE id = %(id)s;
         """
         return connectToMySQL(cls.db_name).query_db(query, data)
     
@@ -89,16 +92,18 @@ class Director:
                 """
                 # Create a new dictionary for the director data
                 new_movie_dictionary = {
-                    "id": this_movie_dictionary["id"],
+                    "id": this_movie_dictionary["movies.id"], # Bug fixes: need table name when joining tables where column names are duplicated
                     "title": this_movie_dictionary["title"],
                     "genre": this_movie_dictionary["genre"],
                     "release_date": this_movie_dictionary["release_date"],
                     "box_office": this_movie_dictionary["box_office"],
-                    "created_at": this_movie_dictionary["created_at"],
-                    "updated_at": this_movie_dictionary["updated_at"],
+                    "created_at": this_movie_dictionary["movies.created_at"],
+                    "updated_at": this_movie_dictionary["movies.updated_at"],
                 }
                 # Creating a Movie
-                this_movie_instance = cls(new_movie_dictionary)
+                # Bug fix: need movie.Movie to create movie object, NOT cls(), which creates a Director object
+                # cls() means create a class instance - or object - of the current class you're in, which is in this case the Director class
+                this_movie_instance = movie.Movie(new_movie_dictionary) 
                 # Add this Movie to the list of movies for this Director
                 this_director_instance.movies.append(this_movie_instance)
             # Return the Director - with all Movies linked
