@@ -19,14 +19,16 @@
                 <p class="text-end"><a href="/movies">All movies</a></p> 
             </div>
         </div>
-        <form action="/movies/<int:id>/edit_in_db" method="POST">
+        <!-- Bug fix: need Jinja tags to put id in properly-->
+        <form action="/movies/{{ this_movie.id }}/edit_in_db" method="POST">
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Title:</label>
                 <input type="text" class="col-sm-3 col-form-control" name="title" value="{{ this_movie.title }}">
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Genre:</label>
-                <input type="text" class="col-sm-3 col-form-control" name="genre" value="{{ this_movie.genre }}"
+                <!-- Slight error: forgot ">" at the end -->
+                <input type="text" class="col-sm-3 col-form-control" name="genre" value="{{ this_movie.genre }}">
             </div>
             <div class="my-3 row">
                 <label class="col-sm-2 col-form-label">Box office:</label>

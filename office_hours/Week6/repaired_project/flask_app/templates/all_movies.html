@@ -37,8 +37,8 @@
                     <td>{{ movie.id }}</td>
                     <td>{{ movie.title }}</td>
                     <td>{{ movie.release_date.strftime("%b %d %Y") }}</td>
-                    <td>{{ movie.first_name }} {{ movie.last_name }}</td>
-                    <td><a href="/movies/<int:id>/view">View</a> <a href="/movies/<int:id>/edit">Edit</a> <a href="/movies/<int:id>/delete">Delete</a></td> <!-- Fix in Wednesday's lecture -->
+                    <td>{{ movie.director.first_name }} {{ movie.director.last_name }}</td>
+                    <td><a href="/movies/{{ movie.id }}/view">View</a> <a href="/movies/{{ movie.id }}/edit">Edit</a> <a href="/movies/{{ movie.id }}/delete">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>

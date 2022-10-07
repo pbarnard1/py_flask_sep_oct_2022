@@ -24,7 +24,7 @@
     <p>Date of birth: {{ this_director.birth_date.strftime("%B %d, %Y") }}</p>
     <p>Movies directed:</p>
     <ul>
-        {% for this_movie in movies %}
+        {% for this_movie in this_director.movies %}
             <li>{{ this_movie.title }}</li>
         {% endfor %}
     </ul>

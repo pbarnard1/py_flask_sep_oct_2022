@@ -24,6 +24,7 @@
     <p>Release date: {{ this_movie.release_date.strftime("%B %d, %Y") }}</p>
     <p>Genre: {{ this_movie.genre }}</p>
     <p>Box office: ${{ this_movie.box_office }}</p>
-    <p>Director: {{ this_movie.first_name }} {{ this_movie.last_name }}</p>
+    <!-- Bug fix: need .director.attribute_name -->
+    <p>Director: {{ this_movie.director.first_name }} {{ this_movie.director.last_name }}</p>
 </body>
 </html>
