@@ -35,15 +35,3 @@ min_max_sum([3, 5, 2, 7, 3])
 
 # One technique (not shown): sort the list, 
 # then remove the first value to get the max value and for the min sum, remove the last value
-
-"""
-Swap case (from HackerRank):
-https://www.hackerrank.com/challenges/swap-case/problem?isFullScreen=true
-
-Given a string, return a new string where the letters switch case.
-
-Examples:
-"Help" -> "hELP"
-"let'S Go" -> "LET's gO"
-"123 MaiN St." -> "123 mAIn sT."
-"""
