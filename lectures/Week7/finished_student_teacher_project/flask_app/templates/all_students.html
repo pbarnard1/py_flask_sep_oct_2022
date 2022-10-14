@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='all_page_styles.css') }}">
+    <title>All students</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">All Students</p> <!-- Display name of user from session here! -->
+        <p class="col"><a href="/students/new">Add student</a> <a href="/teachers">All teachers</a></p>
+    </div>
+    <h1>List of Students</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Number of teachers</th>
+                <th>Birthdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Show each student -->
+            {% for this_student in all_students %}
+            <tr>
+                <td>{{ this_student.id }}</td>
+                <td>{{ this_student.first_name }} {{ this_student.last_name }}</td>
+                <td>{{ this_student.num_teachers }}</td>
+                <td>{{ this_student.birthdate }}</td>
+                <td><a href="/students/{{ this_student.id }}/show">View</a> <a href="/students/{{ this_student.id }}/delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

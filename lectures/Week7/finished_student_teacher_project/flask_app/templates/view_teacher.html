@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='all_page_styles.css') }}">
+    <title>View a Student</title>
+</head>
+<body>
+    <!-- Now we can show one city from the database -->
+    <div class="container">
+        <p class="large big-col">About {{ this_teacher.first_name }} {{ this_teacher.last_name }}</p>
+        <p class="col"><a href="/students">All students</a> <a href="/teachers">All teachers</a></p>
+    </div>
+    <p>Email: {{ this_teacher.email }} </p>
+    <p>Subject: {{ this_teacher.subject }}</p>
+    <p>All {{ this_teacher.students|length }} students for this student:</p>
+    <ul>
+        {% for student in this_teacher.students %}
+        <li>{{ student.first_name }} {{ student.last_name }} in {{ student.semester }} <a href="/teachers/{{ this_teacher.id }}/remove_student/{{ student.id }}">Remove student</a></li>
+        {% endfor %}
+    </ul>
+    <form action="/teachers/{{ this_teacher.id }}/add_student" method="POST">
+        <label for="semester">Semester:</label>
+        <input type="text" name="semester" id="semester">
+        <select name="student_id">
+            {% for student in all_students_not_taught_by_teacher %}
+            <option value="{{ student.id }}">{{ student.first_name }} {{ student.last_name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add student">
+    </form>
+</body>
+</html>

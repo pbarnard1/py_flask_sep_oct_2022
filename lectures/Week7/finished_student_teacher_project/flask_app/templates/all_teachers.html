@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='all_page_styles.css') }}">
+    <title>All teachers</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">All Teachers</p> <!-- Display name of user from session here! -->
+        <p class="col"><a href="/teachers/new">Add teacher</a> <a href="/students">All students</a></p>
+    </div>
+    <h1>List of Teachers</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Number of students</th>
+                <th>Subject</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Show each teacher -->
+            {% for this_teacher in all_teachers %}
+            <tr>
+                <td>{{ this_teacher.id }}</td>
+                <td>{{ this_teacher.first_name }} {{ this_teacher.last_name }}</td>
+                <td>{{ this_teacher.num_students }}</td>
+                <td>{{ this_teacher.subject }}</td>
+                <td><a href="/teachers/{{ this_teacher.id }}/show">View</a> <a href="/teachers/{{ this_teacher.id }}/delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
