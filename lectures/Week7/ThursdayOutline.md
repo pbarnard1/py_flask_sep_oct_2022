@@ -14,20 +14,23 @@ Mahmoud returns next week!  So those of you who are Mahmoud's students will go b
 
 ## Lecture outline (tentative)
 - Add student to DB
-- Remove student from DB
 - Show all students (no linking classes yet)
+- Remove student from DB
 - Add teacher to DB
-- Remove teacher from DB
 - Show all teachers (no linking classes yet)
+- Remove teacher from DB
 
 - Show one student with all teachers:
     - Remove a teacher from student
     - Add a new teacher (unique teacher)
     - Display number of teachers
     - Display semester and course with each teacher
-- Show one student with all teachers:
-    - Remove a teacher from student
-    - Add a new teacher (unique teacher)
-    - Display number of students
+
 - Show number of teachers for each student in all students page
+
+Didn't get to in time in lecture:
+- Show one teacher with all students:
+    - Remove a student from teacher
+    - Add a new student
+    - Display number of students
 - Show number of students for each teacher in all teachers page

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form_page_styles.css') }}">
+    <title>Add a Teacher</title>
+</head>
+<body>
+    <div class="container">
+        <p class="large big-col">Add a Teacher</p>
+        <p class="col"><a href="/students">All students</a> <a href="/teachers">All teachers</a> </p> <!-- Corrected links! -->
+    </div>
+    <form action="/teachers/add_to_db" method="POST"> <!-- Don't forget action and method="POST"!-->
+        <div class="container">
+            <label for="first_name" class="label-col">First name:</label>
+            <input type="text" name="first_name" id="first_name"> <!-- Don't forget name="key_value" in forms!-->
+        </div>
+        <div class="container">
+            <label for="last_name" class="label-col">Last name:</label>
+            <input type="text" name="last_name" id="last_name">
+        </div>
+        <div class="container">
+            <label for="subject" class="label-col">Subject:</label>
+            <input type="text" name="subject" id="subject">
+        </div>
+        <div class="container">
+            <label class="label-col">Is tenured?</label>
+            <input type="radio" name="is_tenured" id="is_tenured_yes" value="1">
+            <label for="is_tenured_yes">Yes</label>
+            <input type="radio" name="is_tenured" id="is_tenured_no" value="0">
+            <label for="is_tenured_no">No</label>
+        </div>
+        <div class="container">
+            <label for="email" class="label-col">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <!-- Remember to have a button or input type="submit"!-->
+        <input type="submit" value="Add teacher" class="offset-btn">
+    </form>
+</body>
+</html>
