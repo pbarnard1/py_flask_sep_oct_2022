@@ -31,8 +31,10 @@ class Student:
 
     @classmethod
     def get_all_students(cls):
+        # CORRECTED: changed from SELECT *, COUNT(teacher_id) to
+        # "SELECT students.*, COUNT(teacher_id)" due to it not working for some folks
         query = """
-        SELECT *, COUNT(teacher_id) AS num_teachers FROM students
+        SELECT students.*, COUNT(teacher_id) AS num_teachers FROM students
         LEFT JOIN students_teachers
         ON students.id = students_teachers.student_id
         GROUP BY students.id;
