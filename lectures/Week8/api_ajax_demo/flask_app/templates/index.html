@@ -10,7 +10,13 @@
     <!-- We'll soon add a form where we can search by title, and then save our favorites with AJAX! -->
     <!-- We'll use https://imdb-api.com (need to register to get API key) -->
     <p id="paragraph1" onmouseover="changeColor(this)" onmouseout="changeBack(this)">Placeholder page</p>
-
+    <form onsubmit="searchIMDB(event)" id="searchForm">
+        <label for="title">Title to search for:</label>
+        <input type="text" for="title" name="title">
+        <input type="submit" value="Search">
+    </form>
+    <div id="search_results">
+    </div>
     <script type="text/javascript" src="{{ url_for('static', filename='ajax_demo.js') }}"></script>
 </body>
 </html>
